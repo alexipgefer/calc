@@ -1,34 +1,35 @@
-const isNum = (num) => {
-	if (isNaN(num)) {
-		return 'Error'
-	}
-	if (typeof num === 'number' && num !== Infinity && num !== -Infinity) {
+const isValidNum = (num) => {
+    if (isNaN(num)) {
+        return 'Error'
+    }
+    if (typeof (num) === 'number' && num !== Infinity) {
         return num;
-	}
-	return 'Error'
+    }
+    return 'Error'
 }
 const calc = (mathOperation, num1, num2) => {
     let result;
-    if ('mathOperation' === 'sum') {
-        result = num1 + num2;
+    switch (mathOperation) {
+        case 'sum':
+            result = num1 + num2;
+            break;
+        case 'sub':
+            result = num1 - num2;
+            break;
+        case 'multi':
+            result = num1 - num2;
+            break;
+        case 'div':
+            result = num1 / num2;
+            break;
+        case 'pow':
+            result = num1 ** num2;
+            break;
+        case 'remOfDiv':
+            result = num1 % num2;
+            break;
+        default:
+            return 'unknown opertion'
     }
-    else if (mathOperation === 'sub') {
-        result = num1 - num2;
-    }
-    else if (mathOperation === 'multi') {
-        result = num1 * num2;
-    }
-    else if (mathOperation === 'div') {
-        result = num1 / num2;
-    }
-    else if (mathOperation === 'pow') {
-        result = num1 ** num2;
-    }
-    else if (mathOperation === 'RemDiv') {
-        result = num1 % num2;
-    }
-    else {
-        return 'Error';
-    }
-    return isNum(result);
+    return isValidNum(result);
 };
