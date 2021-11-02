@@ -25,7 +25,7 @@ const calc = (mathOperation, num1, num2) => {
         case 'pow':
             result = num1 ** num2;
             break;
-        case 'remOfDiv':
+        case 'remDiv':
             result = num1 % num2;
             break;
         default:
