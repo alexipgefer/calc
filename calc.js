@@ -7,29 +7,19 @@ const isValidNum = (num) => {
     }
     return 'Error'
 }
+
 const calc = (mathOperation, num1, num2) => {
-    let result;
-    switch (mathOperation) {
-        case 'sum':
-            result = num1 + num2;
-            break;
-        case 'sub':
-            result = num1 - num2;
-            break;
-        case 'multi':
-            result = num1 - num2;
-            break;
-        case 'div':
-            result = num1 / num2;
-            break;
-        case 'pow':
-            result = num1 ** num2;
-            break;
-        case 'remDiv':
-            result = num1 % num2;
-            break;
-        default:
-            return 'unknown opertion'
-    }
-    return isValidNum(result);
+  let result;
+    let operation = {
+        sum: num1 + num2,
+        sub: num1 - num2,
+        multi: num1 * num2,
+        div: num1 / num2,
+    } 
+    if ( mathOperation in operation ) {
+      result = operation[mathOperation];
+    } else {
+    return 'unknown operation';
+}
+return isValidNum(result)
 };
